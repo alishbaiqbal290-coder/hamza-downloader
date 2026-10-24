@@ -1,39 +1,79 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hamza Downloader</title>
 <style>
-body{background:#000;color:white;font-family:Arial;text-align:center;padding:20px}
-h1{color:#ff0050;font-size:32px}
+body{background:#000;color:#fff;font-family:Arial;text-align:center;padding:15px}
+h1{color:#ff0050;font-size:34px;margin:5px}
+.tag{background:#ff0050;padding:6px 14px;border-radius:20px;font-size:14px}
 p{color:#ccc}
-input{width:90%;padding:15px;border-radius:12px;border:none;font-size:16px;margin-top:15px}
-button{width:95%;padding:15px;background:#ff0050;color:white;border:none;border-radius:12px;font-size:18px;margin-top:15px;font-weight:bold}
-.box{background:#111;padding:20px;border-radius:15px;margin-top:20px}
-a{color:#00ffcc;text-decoration:none;font-weight:bold}
+input{width:92%;padding:16px;border-radius:15px;border:2px solid #ff0050;font-size:16px;background:#111;color:#fff}
+button{width:95%;padding:16px;background:#ff0050;color:#fff;border:none;border-radius:15px;font-size:19px;font-weight:bold;margin-top:12px}
+button2{background:#00e676 !important}
+.box{background:#111;padding:18px;border-radius:20px;margin-top:15px;border:1px solid #333}
+video{width:100%;border-radius:15px;margin-top:10px}
+#barW{width:100%;background:#222;height:22px;border-radius:20px;margin-top:12px;display:none}
+#bar{width:0%;background:linear-gradient(90deg,#ff0050,#00ffcc);height:22px;border-radius:20px;text-align:center;font-size:13px;line-height:22px}
+#per{font-size:28px;color:#00ffcc;font-weight:bold}
+a.dl{display:block;background:#00e676;color:#000;padding:16px;border-radius:15px;font-weight:bold;text-decoration:none;margin-top:12px;font-size:18px}
+.name{color:#00ffcc;font-size:18px}
 </style>
 </head>
 <body>
 <h1>HAMZA DOWNLOADER 🔥</h1>
-<p>TikTok | YouTube | Instagram | Facebook</p>
-<p>By Hamza Ansari 😎</p>
+<span class="tag">No Watermark • Full HD</span>
+<p>TikTok | YouTube | Insta | FB</p>
+<p class="name">By Hamza Ansari 😎 - Karachi Ka Don 🔥</p>
+
 <div class="box">
-<input id="link" placeholder="Yahan link paste karo...">
-<button onclick="dl()">DOWNLOAD KARO ⬇️</button>
-<p id="msg"></p>
+<input id="link" placeholder="👉 Yahan TikTok Link Paste Karo Bhai">
+<button onclick="get()">DOWNLOAD KARO 🔥</button>
+<p id="msg" style="color:#ffcc00"></p>
+<div id="per"></div>
+<div id="barW"><div id="bar">0%</div></div>
+<div id="res"></div>
 </div>
-<div class="box">
-<h3>Kaise Use Kare?</h3>
-<p>1. TikTok / Insta se link copy karo</p>
-<p>2. Upar paste karo</p>
-<p>3. Download pe click karo</p>
-</div>
+
+<p style="font-size:12px">Paste Karo • Download Karo • Gallery Me Save Karo 😂</p>
+
 <script>
-function dl(){
-let l=document.getElementById('link').value;
-if(l==""){document.getElementById('msg').innerHTML="Pehle link to dalo 😂";return;}
-document.getElementById('msg').innerHTML="Link mil gaya! Download start ho raha hai... 🔥<br><br><a href='"+l+"' target='_blank'>Yahan Click Kar Ke Download Karo</a>";
+let finalUrl="";
+async function get(){
+let u=document.getElementById('link').value;
+if(!u){alert('Oye pehle link to dal 😂');return}
+document.getElementById('msg').innerHTML='Ruk ja Hamza... Video nikal raha hun 😎';
+document.getElementById('barW').style.display='block';
+let p=0;
+let timer=setInterval(()=>{
+p+=Math.floor(Math.random()*8)+3;
+if(p>=90){p=90;clearInterval(timer)}
+document.getElementById('bar').style.width=p+'%';
+document.getElementById('bar').innerHTML=p+'%';
+document.getElementById('per').innerHTML=p+'% Loading...';
+},300);
+try{
+let r=await fetch('https://www.tikwm.com/api/?url='+encodeURIComponent(u));
+let j=await r.json();
+let d=j.data;
+finalUrl=d.play || d.hdplay || d.wmplay;
+clearInterval(timer);
+let p2=90;
+let t2=setInterval(()=>{
+p2+=2;
+if(p2>=100){p2=100;clearInterval(t2);
+document.getElementById('msg').innerHTML='DOWNLOAD COMPLETE ✅ Gallery Me Save Karo';
+}
+document.getElementById('bar').style.width=p2+'%';
+document.getElementById('bar').innerHTML=p2+'%';
+document.getElementById('per').innerHTML=p2+'%';
+},80);
+document.getElementById('res').innerHTML='<video controls src="'+finalUrl+'"></video><p>@'+d.author.nickname+' - '+d.title+'</p><a class="dl" href="'+finalUrl+'" download="hamza-video.mp4">⬇️ GALLERY ME SAVE KARO - CLICK KARO</a><a class="dl" style="background:#00ffcc" href="'+d.music+'">🎵 MUSIC DOWNLOAD KARO</a>';
+}catch(e){
+document.getElementById('msg').innerHTML='Oye link galat hai 😂 TikTok ka sahi link dal';
+}
 }
 </script>
 </body>
-  </html>
+</html>
