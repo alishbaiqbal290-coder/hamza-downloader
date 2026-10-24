@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hamza Downloader</title>
+<style>
+body{background:#000;color:white;font-family:Arial;text-align:center;padding:20px}
+h1{color:#ff0050;font-size:32px}
+p{color:#ccc}
+input{width:90%;padding:15px;border-radius:12px;border:none;font-size:16px;margin-top:15px}
+button{width:95%;padding:15px;background:#ff0050;color:white;border:none;border-radius:12px;font-size:18px;margin-top:15px;font-weight:bold}
+.box{background:#111;padding:20px;border-radius:15px;margin-top:20px}
+a{color:#00ffcc;text-decoration:none;font-weight:bold}
+</style>
+</head>
+<body>
+<h1>HAMZA DOWNLOADER 🔥</h1>
+<p>TikTok | YouTube | Instagram | Facebook</p>
+<p>By Hamza Ansari 😎</p>
+<div class="box">
+<input id="link" placeholder="Yahan link paste karo...">
+<button onclick="dl()">DOWNLOAD KARO ⬇️</button>
+<p id="msg"></p>
+</div>
+<div class="box">
+<h3>Kaise Use Kare?</h3>
+<p>1. TikTok / Insta se link copy karo</p>
+<p>2. Upar paste karo</p>
+<p>3. Download pe click karo</p>
+</div>
+<script>
+function dl(){
+let l=document.getElementById('link').value;
+if(l==""){document.getElementById('msg').innerHTML="Pehle link to dalo 😂";return;}
+document.getElementById('msg').innerHTML="Link mil gaya! Download start ho raha hai... 🔥<br><br><a href='"+l+"' target='_blank'>Yahan Click Kar Ke Download Karo</a>";
+}
+</script>
+</body>
+  </html>
