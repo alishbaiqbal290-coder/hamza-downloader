@@ -1,79 +1,22 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hamza Downloader</title>
+<title>HD Video Downloader</title>
 <style>
-body{background:#000;color:#fff;font-family:Arial;text-align:center;padding:15px}
-h1{color:#ff0050;font-size:34px;margin:5px}
-.tag{background:#ff0050;padding:6px 14px;border-radius:20px;font-size:14px}
-p{color:#ccc}
-input{width:92%;padding:16px;border-radius:15px;border:2px solid #ff0050;font-size:16px;background:#111;color:#fff}
-button{width:95%;padding:16px;background:#ff0050;color:#fff;border:none;border-radius:15px;font-size:19px;font-weight:bold;margin-top:12px}
-button2{background:#00e676 !important}
-.box{background:#111;padding:18px;border-radius:20px;margin-top:15px;border:1px solid #333}
-video{width:100%;border-radius:15px;margin-top:10px}
-#barW{width:100%;background:#222;height:22px;border-radius:20px;margin-top:12px;display:none}
-#bar{width:0%;background:linear-gradient(90deg,#ff0050,#00ffcc);height:22px;border-radius:20px;text-align:center;font-size:13px;line-height:22px}
-#per{font-size:28px;color:#00ffcc;font-weight:bold}
-a.dl{display:block;background:#00e676;color:#000;padding:16px;border-radius:15px;font-weight:bold;text-decoration:none;margin-top:12px;font-size:18px}
-.name{color:#00ffcc;font-size:18px}
-</style>
-</head>
-<body>
-<h1>HAMZA DOWNLOADER 🔥</h1>
-<span class="tag">No Watermark • Full HD</span>
-<p>TikTok | YouTube | Insta | FB</p>
-<p class="name">By Hamza Ansari 😎 - Karachi Ka Don 🔥</p>
+*{box-sizing:border-box;font-family:Arial,sans-serif}
+body{margin:0;background:#000;color:#fff;padding:14px}
+.main{max-width:500px;margin:0 auto}
+.top{text-align:center;padding:18px 0 5px}
+.top h1{margin:0;font-size:30px;color:#2f7bff;letter-spacing:1px}
+.top h1 span{color:#fff}
+.top p{color:#aaa;font-size:13px;margin:6px 0}
+.badge{display:inline-block;background:#0a2a5e;color:#7fb0ff;border:1px solid #2f7bff;padding:6px 14px;border-radius:20px;font-size:12px;margin-top:8px}
 
-<div class="box">
-<input id="link" placeholder="👉 Yahan TikTok Link Paste Karo Bhai">
-<button onclick="get()">DOWNLOAD KARO 🔥</button>
-<p id="msg" style="color:#ffcc00"></p>
-<div id="per"></div>
-<div id="barW"><div id="bar">0%</div></div>
-<div id="res"></div>
-</div>
-
-<p style="font-size:12px">Paste Karo • Download Karo • Gallery Me Save Karo 😂</p>
-
-<script>
-let finalUrl="";
-async function get(){
-let u=document.getElementById('link').value;
-if(!u){alert('Oye pehle link to dal 😂');return}
-document.getElementById('msg').innerHTML='Ruk ja Hamza... Video nikal raha hun 😎';
-document.getElementById('barW').style.display='block';
-let p=0;
-let timer=setInterval(()=>{
-p+=Math.floor(Math.random()*8)+3;
-if(p>=90){p=90;clearInterval(timer)}
-document.getElementById('bar').style.width=p+'%';
-document.getElementById('bar').innerHTML=p+'%';
-document.getElementById('per').innerHTML=p+'% Loading...';
-},300);
-try{
-let r=await fetch('https://www.tikwm.com/api/?url='+encodeURIComponent(u));
-let j=await r.json();
-let d=j.data;
-finalUrl=d.play || d.hdplay || d.wmplay;
-clearInterval(timer);
-let p2=90;
-let t2=setInterval(()=>{
-p2+=2;
-if(p2>=100){p2=100;clearInterval(t2);
-document.getElementById('msg').innerHTML='DOWNLOAD COMPLETE ✅ Gallery Me Save Karo';
-}
-document.getElementById('bar').style.width=p2+'%';
-document.getElementById('bar').innerHTML=p2+'%';
-document.getElementById('per').innerHTML=p2+'%';
-},80);
-document.getElementById('res').innerHTML='<video controls src="'+finalUrl+'"></video><p>@'+d.author.nickname+' - '+d.title+'</p><a class="dl" href="'+finalUrl+'" download="hamza-video.mp4">⬇️ GALLERY ME SAVE KARO - CLICK KARO</a><a class="dl" style="background:#00ffcc" href="'+d.music+'">🎵 MUSIC DOWNLOAD KARO</a>';
-}catch(e){
-document.getElementById('msg').innerHTML='Oye link galat hai 😂 TikTok ka sahi link dal';
-}
-}
-</script>
-</body>
-</html>
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.box{background:#0b1220;border:2px solid #1e2e4d;border-radius:16px;padding:18px 8px;text-align:center;cursor:pointer}
+.box.active{background:#0a2a5e;border-color:#2f7bff;box-shadow:0 0 18px rgba(47,123,255,.45)}
+.box .ic{font-size:30px}
+.box h3{margin:8px 0 2px;font-size:16px}
+.box p{margin:0;color:#8a9bb
