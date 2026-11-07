@@ -1,158 +1,332 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hamza Downloader</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLACK HOLE DOWNLOADER</title>
+
 <style>
-*{box-sizing:border-box;font-family:Arial,sans-serif}
-body{margin:0;background:#000;color:#fff;padding:14px}
-.main{max-width:500px;margin:0 auto}
-.top{text-align:center;padding:20px 0 5px}
-.top h1{margin:0;font-size:32px;color:#2f7bff}
-.top h1 span{color:#fff}
-.top p{color:#aaa;font-size:13px;margin:6px 0}
-.badge{display:inline-block;background:#0a2a5e;color:#7fb0ff;border:1px solid #2f7bff;padding:6px 14px;border-radius:20px;font-size:12px;margin-top:8px}
-.by{color:#00e676;font-size:14px;margin-top:10px;font-weight:bold}
-
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
-.box{background:#0b1220;border:2px solid #1e2e4d;border-radius:16px;padding:18px 8px;text-align:center;cursor:pointer}
-.box.active{background:#0a2a5e;border-color:#2f7bff;box-shadow:0 0 18px rgba(47,123,255,.45)}
-.box .ic{font-size:30px}
-.box h3{margin:8px 0 2px;font-size:16px}
-.box p{margin:0;color:#8a9bb5;font-size:12px}
-
-.card{background:#0b1220;border:1px solid #1e2e4d;border-radius:20px;padding:18px;margin-top:16px}
-.card label{font-size:13px;color:#ccc}
-input{width:100%;padding:15px;border-radius:12px;border:2px solid #2f7bff;background:#000;color:#fff;font-size:15px;margin-top:8px;outline:none}
-.btn{width:100%;padding:15px;background:#2f7bff;color:#fff;border:none;border-radius:12px;font-size:17px;font-weight:bold;margin-top:12px;cursor:pointer}
-.btn:active{transform:scale(.97)}
-#msg{text-align:center;color:#ffcc00;font-size:14px;min-height:20px;margin-top:10px}
-#barW{width:100%;background:#222;height:18px;border-radius:20px;margin-top:8px;display:none;overflow:hidden}
-#bar{width:0%;background:linear-gradient(90deg,#2f7bff,#00e5ff);height:18px;border-radius:20px;text-align:center;font-size:12px;line-height:18px}
-#clickArea{display:none;margin-top:14px;text-align:center}
-.click-btn{display:block;background:#00c853;color:#fff;padding:16px;border-radius:12px;font-weight:bold;text-decoration:none;font-size:17px}
-.click-btn small{display:block;font-weight:normal;font-size:12px;margin-top:4px;opacity:.9}
-video{width:100%;border-radius:14px;margin-top:14px;background:#000}
-.title{font-size:14px;color:#ddd;margin-top:10px;line-height:1.5}
-.dl{display:block;background:#2f7bff;color:#fff;padding:15px;border-radius:12px;font-weight:bold;text-decoration:none;margin-top:10px;font-size:16px;text-align:center}
-.dl.green{background:#00c853}
-.dl.orange{background:#ff6d00}
-.dl.dark{background:#111;border:1px solid #2f7bff;color:#7fb0ff}
-.qbox{display:flex;gap:8px;margin-top:12px}
-.qbox button{flex:1;padding:11px;border-radius:10px;border:1px solid #2f7bff;background:#000;color:#fff;cursor:pointer;font-size:13px}
-.qbox button.active{background:#2f7bff}
-.footer{text-align:center;color:#666;font-size:12px;margin-top:18px;line-height:1.6}
+*{box-sizing:border-box}
+body{
+ margin:0;
+ background:#050807;
+ color:white;
+ font-family:Arial,sans-serif;
+}
+header{
+ padding:24px 16px;
+ text-align:center;
+ background:#08130e;
+ border-bottom:1px solid #123d27;
+}
+.logo{
+ font-size:27px;
+ font-weight:bold;
+ color:#38ff91;
+ letter-spacing:2px;
+}
+header p{color:#8ca99a;font-size:12px}
+.container{
+ max-width:500px;
+ margin:25px auto;
+ padding:16px;
+}
+.card{
+ background:#0b1510;
+ border:1px solid #17472c;
+ border-radius:17px;
+ padding:20px;
+ box-shadow:0 0 20px #0b2415;
+}
+h2{font-size:19px}
+.inputbox{
+ width:100%;
+ padding:16px;
+ border-radius:10px;
+ border:1px solid #286b43;
+ background:#07100b;
+ color:white;
+ outline:none;
+ margin:12px 0;
+ font-size:14px;
+}
+button{
+ border:0;
+ padding:14px;
+ border-radius:10px;
+ cursor:pointer;
+ font-weight:bold;
+}
+.download{
+ width:100%;
+ background:#35f58a;
+ color:#031208;
+ font-size:16px;
+}
+.voice{
+ background:#193a28;
+ color:#51ff9c;
+ width:100%;
+ margin-top:10px;
+}
+.platforms{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:10px;
+ margin:20px 0;
+}
+.platform{
+ background:#101d15;
+ border:1px solid #1e5734;
+ padding:13px 5px;
+ text-align:center;
+ border-radius:10px;
+ font-size:12px;
+ color:#b8d8c5;
+}
+select{
+ width:100%;
+ padding:13px;
+ background:#07100b;
+ color:white;
+ border:1px solid #286b43;
+ border-radius:9px;
+ margin:10px 0;
+}
+#status{
+ margin-top:15px;
+ color:#5cff9e;
+ font-size:13px;
+ text-align:center;
+}
+.note{
+ color:#82958a;
+ font-size:12px;
+ line-height:1.6;
+ margin-top:20px;
+}
+.history{
+ margin-top:20px;
+ padding:15px;
+ background:#0b1510;
+ border-radius:12px;
+}
+footer{
+ text-align:center;
+ color:#718477;
+ font-size:11px;
+ padding:25px;
+}
 </style>
 </head>
+
 <body>
-<div class="main">
-<div class="top">
-<h1>HAMZA <span>DOWNLOADER</span></h1>
-<p>Instagram • TikTok • Facebook • YouTube Shorts</p>
-<span class="badge">Original Quality • No Watermark • Fast</span>
-<div class="by">By Hamza Ansari 😎</div>
+
+<header>
+ <div class="logo">◉ BLACK HOLE</div>
+ <p>ALL-IN-ONE MEDIA DOWNLOADER</p>
+</header>
+
+<div class="container">
+
+ <div class="card">
+  <h2>Download Your Media</h2>
+  <p style="color:#82958a;font-size:13px">
+   Paste your video, audio or direct media link
+  </p>
+
+  <input id="url"
+   class="inputbox"
+   type="url"
+   placeholder="Paste video link here...">
+
+  <div class="platforms">
+   <div class="platform">▶ YouTube</div>
+   <div class="platform">◎ Instagram</div>
+   <div class="platform">f Facebook</div>
+   <div class="platform">♪ TikTok</div>
+   <div class="platform">♫ Audio</div>
+   <div class="platform">▶ Other</div>
+  </div>
+
+  <label>Media Quality</label>
+  <select id="quality">
+   <option value="source">Original / Available Quality</option>
+   <option value="1080">1080p</option>
+   <option value="720">720p</option>
+   <option value="480">480p</option>
+   <option value="360">360p</option>
+  </select>
+
+  <label>Download Format</label>
+  <select id="format">
+   <option value="video">Video (Original)</option>
+   <option value="audio">Audio (MP3 if supported)</option>
+  </select>
+
+  <button class="download" onclick="downloadMedia()">
+   ↓ DOWNLOAD NOW
+  </button>
+
+  <button class="voice" onclick="voiceInput()">
+   🎙 SPEAK LINK
+  </button>
+
+  <div id="status">Ready to download</div>
+ </div>
+
+ <div class="history">
+  <h3>Download Information</h3>
+  <p style="font-size:12px;color:#91a99a">
+   Your downloads and available media information
+   will appear here.
+  </p>
+  <button onclick="clearHistory()"
+   style="background:#183223;color:white">
+   Clear History
+  </button>
+  <div id="history"></div>
+ </div>
+
+ <p class="note">
+  Note: Direct media URLs can be downloaded when the
+  server permits it. YouTube, Instagram, Facebook and
+  other platforms require their authorized download
+  APIs or a compatible backend. This interface alone
+  does not extract videos from those platforms.
+ </p>
+
 </div>
 
-<div class="grid">
-<div class="box active" onclick="selectP('tiktok',this)"><div class="ic">🎵</div><h3>TikTok</h3><p>Video & Voice</p></div>
-<div class="box" onclick="selectP('instagram',this)"><div class="ic">📸</div><h3>Instagram</h3><p>Reels & Video</p></div>
-<div class="box" onclick="selectP('facebook',this)"><div class="ic">👍</div><h3>Facebook</h3><p>Video & Reels</p></div>
-<div class="box" onclick="selectP('youtube',this)"><div class="ic">▶️</div><h3>YouTube Shorts</h3><p>Shorts Video</p></div>
-</div>
-
-<div class="card">
-<label id="labelText">Paste TikTok Video Link Here</label>
-<input id="link" placeholder="Paste video link here...">
-<button class="btn" onclick="getVideo()">GET VIDEO 🔥</button>
-<div id="msg"></div>
-<div id="barW"><div id="bar">0%</div></div>
-
-<div id="clickArea">
-<p style="font-size:14px;color:#aaa;margin-bottom:8px">Your video is ready 👇</p>
-<a class="click-btn" id="clickHereBtn" href="#" target="_blank">PLEASE CLICK HERE TO DOWNLOAD<small>Tap to save in Gallery - Original Quality</small></a>
-</div>
-
-<div id="res"></div>
-
-<div class="qbox" id="qualityBox" style="display:none">
-<button class="active" onclick="setQ('original',this)">Original Quality</button>
-<button onclick="setQ('hd',this)">HD 1080p</button>
-<button onclick="setQ('voice',this)">Voice / Music</button>
-</div>
-</div>
-
-<div class="footer">Paste Link • Select App • Download<br>Please download only your own videos.</div>
-</div>
+<footer>
+ BLACK HOLE DOWNLOADER<br>
+ Designed by Hamza Ansari
+</footer>
 
 <script>
-let platform='tiktok';
-let curQ='original';
-let videoUrl='', hdUrl='', musicUrl='', titleText='';
 
-function selectP(p,el){
-  platform=p;
-  document.querySelectorAll('.box').forEach(b=>b.classList.remove('active'));
-  el.classList.add('active');
-  let names={tiktok:'Paste TikTok Video Link Here',instagram:'Paste Instagram Reel Link Here',facebook:'Paste Facebook Video Link Here',youtube:'Paste YouTube Shorts Link Here'};
-  document.getElementById('labelText').innerText=names[p];
-  document.getElementById('link').placeholder=names[p];
-  document.getElementById('res').innerHTML='';
-  document.getElementById('clickArea').style.display='none';
-  document.getElementById('qualityBox').style.display='none';
-  document.getElementById('msg').innerText='';
+function downloadMedia(){
+
+ const url=document.getElementById("url").value.trim();
+ const quality=document.getElementById("quality").value;
+ const format=document.getElementById("format").value;
+ const status=document.getElementById("status");
+
+ if(!url){
+  status.innerText="Please paste a link first!";
+  return;
+ }
+
+ let parsed;
+
+ try{
+  parsed=new URL(url);
+ }catch(e){
+  status.innerText="Invalid URL!";
+  return;
+ }
+
+ if(!["http:","https:"].includes(parsed.protocol)){
+  status.innerText="Only HTTP/HTTPS links are supported.";
+  return;
+ }
+
+ const directMedia=/\.(mp4|webm|mov|mp3|m4a|ogg|wav)(\?.*)?$/i.test(parsed.href);
+
+ if(directMedia){
+
+  status.innerText="Opening your media download...";
+
+  const a=document.createElement("a");
+  a.href=parsed.href;
+  a.download="";
+  a.target="_blank";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+
+  saveHistory(url);
+  status.innerText="Download requested. Check your browser downloads.";
+
+ }else{
+
+  status.innerText=
+   "This platform link needs an authorized backend/API. Direct extraction is not connected yet.";
+
+ }
+
 }
-function setQ(q,el){
-  curQ=q;
-  document.querySelectorAll('.qbox button').forEach(b=>b.classList.remove('active'));
-  el.classList.add('active');
-  updateClickBtn();
+
+function voiceInput(){
+
+ const SpeechRecognition=
+  window.SpeechRecognition ||
+  window.webkitSpeechRecognition;
+
+ if(!SpeechRecognition){
+  document.getElementById("status").innerText=
+   "Voice recognition is not supported in this browser.";
+  return;
+ }
+
+ const recognition=new SpeechRecognition();
+ recognition.lang="ur-PK";
+ recognition.start();
+
+ recognition.onresult=function(event){
+  document.getElementById("url").value=
+   event.results[0][0].transcript;
+ };
+
+ recognition.onerror=function(){
+  document.getElementById("status").innerText=
+   "Voice input failed. Try again.";
+ };
+
 }
-function updateClickBtn(){
-  let btn=document.getElementById('clickHereBtn');
-  if(curQ==='voice'){
-    btn.href=musicUrl;
-    btn.innerHTML='PLEASE CLICK HERE TO DOWNLOAD VOICE<small>Tap to save Voice / Music</small>';
-  }else if(curQ==='hd'){
-    btn.href=hdUrl||videoUrl;
-    btn.innerHTML='PLEASE CLICK HERE TO DOWNLOAD<small>Tap to save in Gallery - HD 1080p</small>';
-  }else{
-    btn.href=videoUrl;
-    btn.innerHTML='PLEASE CLICK HERE TO DOWNLOAD<small>Tap to save in Gallery - Original Quality</small>';
-  }
+
+function saveHistory(url){
+
+ let items=JSON.parse(
+  localStorage.getItem("bh_history")||"[]"
+ );
+
+ items.unshift(url);
+ items=items.slice(0,10);
+
+ localStorage.setItem("bh_history",JSON.stringify(items));
+
+ showHistory();
 }
-async function getVideo(){
-  let u=document.getElementById('link').value.trim();
-  if(!u){alert('Please paste link first');return;}
-  document.getElementById('msg').innerText='Please wait... Fetching your video...';
-  document.getElementById('barW').style.display='block';
-  document.getElementById('res').innerHTML='';
-  document.getElementById('clickArea').style.display='none';
-  let p=0;
-  let timer=setInterval(()=>{p+=Math.floor(Math.random()*8)+4;if(p>=90){p=90;clearInterval(timer);}document.getElementById('bar').style.width=p+'%';document.getElementById('bar').innerText=p+'%';},250);
-  try{
-    let r=await fetch('https://www.tikwm.com/api/?url='+encodeURIComponent(u));
-    let j=await r.json();
-    if(!j.data) throw new Error('no data');
-    let d=j.data;
-    videoUrl=d.play||d.hdplay||d.wmplay;
-    hdUrl=d.hdplay||d.play||d.wmplay;
-    musicUrl=d.music||d.play;
-    titleText=d.title||'Video';
-    clearInterval(timer);
-    let p2=90;
-    let t2=setInterval(()=>{p2+=2;if(p2>=100){p2=100;clearInterval(t2);document.getElementById('msg').innerText='DOWNLOAD COMPLETE ✅';}document.getElementById('bar').style.width=p2+'%';document.getElementById('bar').innerText=p2+'%';},60);
-    document.getElementById('clickArea').style.display='block';
-    document.getElementById('qualityBox').style.display='flex';
-    updateClickBtn();
-    document.getElementById('res').innerHTML='<video controls playsinline src="'+videoUrl+'"></video><div class="title">@'+(d.author?.nickname||'User')+' - '+titleText+'</div><a class="dl" href="'+videoUrl+'" target="_blank" download>⬇️ Download Video - Original Quality</a><a class="dl" href="'+hdUrl+'" target="_blank" download>⬇️ Download Video - HD 1080p</a><a class="dl orange" href="'+musicUrl+'" target="_blank" download>🎵 Download Voice / Music</a>';
-  }catch(e){
-    clearInterval(timer);
-    document.getElementById('msg').innerText='This link needs direct open. Click below.';
-    document.getElementById('barW').style.display='none';
-    document.getElementById('res').innerHTML='<a class="dl dark" href="'+u+'" target="_blank">Open Original Video</a><p style="font-size:12px;color:#888;text-align:center;margin-top:8px">Note: TikTok 100% work karega. Instagram / Facebook / YouTube ke liye apni API key lagani hogi.</p>';
-  }
+
+function showHistory(){
+
+ let items=JSON.parse(
+  localStorage.getItem("bh_history")||"[]"
+ );
+
+ document.getElementById("history").innerHTML=
+  items.map(x=>
+   `<p style="font-size:11px;color:#51ff9c;overflow-wrap:anywhere">
+   ${escapeText(x)}</p>`
+  ).join("");
+
 }
+
+function escapeText(value){
+ return String(value).replace(/[&<>"']/g,
+  c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])
+ );
+}
+
+function clearHistory(){
+ localStorage.removeItem("bh_history");
+ showHistory();
+}
+
+showHistory();
+
 </script>
 </body>
 </html>
