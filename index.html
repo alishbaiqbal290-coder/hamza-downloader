@@ -9,114 +9,83 @@
 <style>
 *{box-sizing:border-box}
 body{
- margin:0;
- background:#050807;
- color:white;
+ margin:0;background:#050807;color:white;
  font-family:Arial,sans-serif;
 }
 header{
- padding:24px 16px;
- text-align:center;
- background:#08130e;
- border-bottom:1px solid #123d27;
+ padding:24px 16px;text-align:center;
+ background:#08130e;border-bottom:1px solid #123d27;
 }
 .logo{
- font-size:27px;
- font-weight:bold;
- color:#38ff91;
+ font-size:27px;font-weight:bold;color:#38ff91;
  letter-spacing:2px;
 }
 header p{color:#8ca99a;font-size:12px}
-.container{
- max-width:500px;
- margin:25px auto;
- padding:16px;
-}
+.container{max-width:500px;margin:25px auto;padding:16px}
 .card{
- background:#0b1510;
- border:1px solid #17472c;
- border-radius:17px;
- padding:20px;
+ background:#0b1510;border:1px solid #17472c;
+ border-radius:17px;padding:20px;
  box-shadow:0 0 20px #0b2415;
 }
 h2{font-size:19px}
 .inputbox{
- width:100%;
- padding:16px;
- border-radius:10px;
- border:1px solid #286b43;
- background:#07100b;
- color:white;
- outline:none;
- margin:12px 0;
- font-size:14px;
+ width:100%;padding:16px;border-radius:10px;
+ border:1px solid #286b43;background:#07100b;
+ color:white;outline:none;margin:12px 0;font-size:14px;
 }
 button{
- border:0;
- padding:14px;
- border-radius:10px;
- cursor:pointer;
- font-weight:bold;
+ border:0;padding:14px;border-radius:10px;
+ cursor:pointer;font-weight:bold;
 }
 .download{
- width:100%;
- background:#35f58a;
- color:#031208;
+ width:100%;background:#35f58a;color:#031208;
  font-size:16px;
 }
 .voice{
- background:#193a28;
- color:#51ff9c;
- width:100%;
- margin-top:10px;
+ background:#193a28;color:#51ff9c;
+ width:100%;margin-top:10px;
 }
 .platforms{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:10px;
- margin:20px 0;
+ display:grid;grid-template-columns:repeat(3,1fr);
+ gap:10px;margin:20px 0;
 }
 .platform{
- background:#101d15;
- border:1px solid #1e5734;
- padding:13px 5px;
- text-align:center;
- border-radius:10px;
- font-size:12px;
- color:#b8d8c5;
+ background:#101d15;border:1px solid #1e5734;
+ padding:13px 5px;text-align:center;
+ border-radius:10px;font-size:12px;color:#b8d8c5;
 }
 select{
- width:100%;
- padding:13px;
- background:#07100b;
- color:white;
- border:1px solid #286b43;
- border-radius:9px;
- margin:10px 0;
+ width:100%;padding:13px;background:#07100b;
+ color:white;border:1px solid #286b43;
+ border-radius:9px;margin:10px 0;
 }
 #status{
- margin-top:15px;
- color:#5cff9e;
- font-size:13px;
- text-align:center;
+ margin-top:15px;color:#5cff9e;
+ font-size:13px;text-align:center;
 }
-.note{
- color:#82958a;
- font-size:12px;
- line-height:1.6;
- margin-top:20px;
+.progress{
+ width:100%;height:12px;background:#17251c;
+ border-radius:20px;overflow:hidden;margin-top:15px;
+}
+#progressBar{
+ width:0%;height:100%;background:#35f58a;
+ transition:width .2s;
+}
+#percent{
+ text-align:center;color:#55ff9b;
+ margin-top:8px;font-size:13px;
 }
 .history{
- margin-top:20px;
- padding:15px;
- background:#0b1510;
- border-radius:12px;
+ margin-top:20px;padding:15px;
+ background:#0b1510;border-radius:12px;
+}
+.note{
+ color:#82958a;font-size:12px;
+ line-height:1.6;margin-top:20px;
 }
 footer{
- text-align:center;
- color:#718477;
- font-size:11px;
- padding:25px;
+ text-align:center;color:#718477;
+ font-size:11px;padding:25px;
 }
 </style>
 </head>
@@ -130,91 +99,125 @@ footer{
 
 <div class="container">
 
- <div class="card">
-  <h2>Download Your Media</h2>
-  <p style="color:#82958a;font-size:13px">
-   Paste your video, audio or direct media link
-  </p>
+<div class="card">
 
-  <input id="url"
-   class="inputbox"
-   type="url"
-   placeholder="Paste video link here...">
+<h2>Download Your Media</h2>
 
-  <div class="platforms">
-   <div class="platform">▶ YouTube</div>
-   <div class="platform">◎ Instagram</div>
-   <div class="platform">f Facebook</div>
-   <div class="platform">♪ TikTok</div>
-   <div class="platform">♫ Audio</div>
-   <div class="platform">▶ Other</div>
-  </div>
+<p style="color:#82958a;font-size:13px">
+Paste your video or audio link
+</p>
 
-  <label>Media Quality</label>
-  <select id="quality">
-   <option value="source">Original / Available Quality</option>
-   <option value="1080">1080p</option>
-   <option value="720">720p</option>
-   <option value="480">480p</option>
-   <option value="360">360p</option>
-  </select>
+<input id="url" class="inputbox"
+type="url" placeholder="Paste video link here...">
 
-  <label>Download Format</label>
-  <select id="format">
-   <option value="video">Video (Original)</option>
-   <option value="audio">Audio (MP3 if supported)</option>
-  </select>
+<div class="platforms">
+<div class="platform">▶ YouTube</div>
+<div class="platform">◎ Instagram</div>
+<div class="platform">f Facebook</div>
+<div class="platform">♪ TikTok</div>
+<div class="platform">♫ Audio</div>
+<div class="platform">▶ Other</div>
+</div>
 
-  <button class="download" onclick="downloadMedia()">
-   ↓ DOWNLOAD NOW
-  </button>
+<label>Media Quality</label>
 
-  <button class="voice" onclick="voiceInput()">
-   🎙 SPEAK LINK
-  </button>
+<select id="quality">
+<option value="source">Original Quality</option>
+<option value="1080">1080p</option>
+<option value="720">720p</option>
+<option value="480">480p</option>
+<option value="360">360p</option>
+</select>
 
-  <div id="status">Ready to download</div>
- </div>
+<label>Download Type</label>
 
- <div class="history">
-  <h3>Download Information</h3>
-  <p style="font-size:12px;color:#91a99a">
-   Your downloads and available media information
-   will appear here.
-  </p>
-  <button onclick="clearHistory()"
-   style="background:#183223;color:white">
-   Clear History
-  </button>
-  <div id="history"></div>
- </div>
+<select id="format">
+<option value="video">Video Download</option>
+<option value="audio">Audio / Voice / Music</option>
+</select>
 
- <p class="note">
-  Note: Direct media URLs can be downloaded when the
-  server permits it. YouTube, Instagram, Facebook and
-  other platforms require their authorized download
-  APIs or a compatible backend. This interface alone
-  does not extract videos from those platforms.
- </p>
+<button class="download" id="downloadBtn"
+onclick="downloadMedia()">
+↓ DOWNLOAD NOW
+</button>
+
+<button class="voice" onclick="voiceInput()">
+🎙 SPEAK LINK
+</button>
+
+<div class="progress">
+<div id="progressBar"></div>
+</div>
+
+<div id="percent">0%</div>
+<div id="status">Ready to download</div>
+
+</div>
+
+<div class="history">
+<h3>Download History</h3>
+<div id="history"></div>
+<button onclick="clearHistory()"
+style="background:#183223;color:white">
+Clear History
+</button>
+</div>
+
+<p class="note">
+Downloads work with direct media links and a properly
+configured authorized download service. Original quality
+depends on the source. Android APK integration is needed
+for automatic Gallery saving.
+</p>
 
 </div>
 
 <footer>
- BLACK HOLE DOWNLOADER<br>
- Designed by Hamza Ansari
+BLACK HOLE DOWNLOADER<br>
+Designed by Hamza Ansari
 </footer>
 
 <script>
 
-function downloadMedia(){
+// Configure your authorized backend here.
+// Example: https://your-server.com/api/download
+const API_ENDPOINT = "";
 
- const url=document.getElementById("url").value.trim();
- const quality=document.getElementById("quality").value;
- const format=document.getElementById("format").value;
- const status=document.getElementById("status");
+let busy = false;
+
+const $ = id => document.getElementById(id);
+
+function updateProgress(value){
+ value=Math.max(0,Math.min(100,value));
+ $("progressBar").style.width=value+"%";
+ $("percent").innerText=Math.floor(value)+"%";
+}
+
+function setStatus(message){
+ $("status").innerText=message;
+}
+
+function saveHistory(url,filename){
+ let items=JSON.parse(
+  localStorage.getItem("bh_history")||"[]"
+ );
+ items.unshift({url,filename});
+ localStorage.setItem(
+  "bh_history",JSON.stringify(items.slice(0,10))
+ );
+ showHistory();
+}
+
+async function downloadMedia(){
+
+ if(busy)return;
+
+ const url=$("url").value.trim();
+ const quality=$("quality").value;
+ const format=$("format").value;
 
  if(!url){
-  status.innerText="Please paste a link first!";
+  setStatus("Please paste a link first!");
   return;
  }
 
@@ -223,101 +226,225 @@ function downloadMedia(){
  try{
   parsed=new URL(url);
  }catch(e){
-  status.innerText="Invalid URL!";
+  setStatus("Invalid URL!");
   return;
  }
 
  if(!["http:","https:"].includes(parsed.protocol)){
-  status.innerText="Only HTTP/HTTPS links are supported.";
+  setStatus("Only HTTP/HTTPS links are supported.");
   return;
  }
 
- const directMedia=/\.(mp4|webm|mov|mp3|m4a|ogg|wav)(\?.*)?$/i.test(parsed.href);
+ busy=true;
+ $("downloadBtn").disabled=true;
+ $("downloadBtn").innerText="DOWNLOADING...";
+ updateProgress(0);
 
- if(directMedia){
+ try{
 
-  status.innerText="Opening your media download...";
+  let response;
+  let filename;
+  let mime;
 
-  const a=document.createElement("a");
-  a.href=parsed.href;
-  a.download="";
-  a.target="_blank";
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
+  const directMedia=
+   /\.(mp4|webm|mov|mp3|m4a|ogg|wav)(\?.*)?$/i
+   .test(parsed.pathname);
 
-  saveHistory(url);
-  status.innerText="Download requested. Check your browser downloads.";
+  if(directMedia){
 
- }else{
+   setStatus("Connecting to media source...");
 
-  status.innerText=
-   "This platform link needs an authorized backend/API. Direct extraction is not connected yet.";
+   response=await fetch(parsed.href);
+
+   if(!response.ok){
+    throw new Error("Media server rejected the request.");
+   }
+
+   filename=decodeURIComponent(
+    parsed.pathname.split("/").pop()||"media"
+   );
+
+  }else{
+
+   if(!API_ENDPOINT){
+    throw new Error(
+     "Platform link needs an authorized download backend. Configure API_ENDPOINT first."
+    );
+   }
+
+   setStatus("Getting available media...");
+
+   response=await fetch(API_ENDPOINT,{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({
+     url:url,
+     quality:quality,
+     format:format
+    })
+   });
+
+   if(!response.ok){
+    throw new Error("Download service error.");
+   }
+
+   filename="black-hole-download";
+  }
+
+  const mimeHeader=response.headers.get("Content-Type");
+  mime=mimeHeader||"application/octet-stream";
+
+  if(format==="audio" &&
+     !mime.includes("audio") &&
+     !directMedia){
+   throw new Error("Audio format was not returned by the service.");
+  }
+
+  const total=Number(
+   response.headers.get("Content-Length")||0
+  );
+
+  const reader=response.body.getReader();
+  const chunks=[];
+  let received=0;
+
+  setStatus("Downloading your file...");
+
+  while(true){
+
+   const result=await reader.read();
+
+   if(result.done)break;
+
+   chunks.push(result.value);
+   received+=result.value.length;
+
+   if(total>0){
+    updateProgress(received/total*100);
+   }else{
+    setStatus("Downloading... size information unavailable");
+   }
+  }
+
+  if(received===0){
+   throw new Error("The downloaded file is empty.");
+  }
+
+  updateProgress(100);
+
+  const blob=new Blob(chunks,{type:mime});
+
+  const extension=format==="audio"?"audio":"video";
+
+  if(!filename.includes(".")){
+   filename="black-hole-"+Date.now()+
+    (format==="audio"?".mp3":".mp4");
+  }
+
+  await saveFile(blob,filename);
+
+  saveHistory(url,filename);
+
+  setStatus("100% Complete! Check your Gallery or Downloads.");
+
+ }catch(error){
+
+  setStatus("Download failed: "+error.message);
+
+ }finally{
+
+  busy=false;
+  $("downloadBtn").disabled=false;
+  $("downloadBtn").innerText="↓ DOWNLOAD NOW";
 
  }
 
+}
+
+// Android WebView can expose this native method.
+// It must be implemented in the Android APK.
+async function saveFile(blob,filename){
+
+ const mime=blob.type||"application/octet-stream";
+
+ if(window.Android &&
+    typeof window.Android.saveToGallery==="function"){
+
+  const base64=await blobToBase64(blob);
+
+  window.Android.saveToGallery(
+   base64,filename,mime
+  );
+
+  return;
+ }
+
+ // Browser fallback: user can save the file.
+ const objectURL=URL.createObjectURL(blob);
+ const a=document.createElement("a");
+
+ a.href=objectURL;
+ a.download=filename;
+ document.body.appendChild(a);
+ a.click();
+ a.remove();
+
+ setTimeout(()=>URL.revokeObjectURL(objectURL),60000);
+
+}
+
+function blobToBase64(blob){
+ return new Promise((resolve,reject)=>{
+  const reader=new FileReader();
+  reader.onload=()=>{
+   resolve(reader.result.split(",")[1]);
+  };
+  reader.onerror=reject;
+  reader.readAsDataURL(blob);
+ });
 }
 
 function voiceInput(){
 
- const SpeechRecognition=
-  window.SpeechRecognition ||
+ const Recognition=
+  window.SpeechRecognition||
   window.webkitSpeechRecognition;
 
- if(!SpeechRecognition){
-  document.getElementById("status").innerText=
-   "Voice recognition is not supported in this browser.";
+ if(!Recognition){
+  setStatus("Voice recognition not supported.");
   return;
  }
 
- const recognition=new SpeechRecognition();
+ const recognition=new Recognition();
  recognition.lang="ur-PK";
- recognition.start();
 
  recognition.onresult=function(event){
-  document.getElementById("url").value=
-   event.results[0][0].transcript;
+  $("url").value=event.results[0][0].transcript;
  };
 
  recognition.onerror=function(){
-  document.getElementById("status").innerText=
-   "Voice input failed. Try again.";
+  setStatus("Voice input failed.");
  };
 
-}
-
-function saveHistory(url){
-
- let items=JSON.parse(
-  localStorage.getItem("bh_history")||"[]"
- );
-
- items.unshift(url);
- items=items.slice(0,10);
-
- localStorage.setItem("bh_history",JSON.stringify(items));
-
- showHistory();
+ recognition.start();
 }
 
 function showHistory(){
 
- let items=JSON.parse(
+ const items=JSON.parse(
   localStorage.getItem("bh_history")||"[]"
  );
 
- document.getElementById("history").innerHTML=
-  items.map(x=>
-   `<p style="font-size:11px;color:#51ff9c;overflow-wrap:anywhere">
-   ${escapeText(x)}</p>`
-  ).join("");
+ $("history").replaceChildren();
 
-}
+ items.forEach(item=>{
+  const p=document.createElement("p");
+  p.style.cssText=
+   "font-size:12px;color:#51ff9c;overflow-wrap:anywhere";
+  p.textContent=item.filename+" - "+item.url;
+  $("history").appendChild(p);
+ });
 
-function escapeText(value){
- return String(value).replace(/[&<>"']/g,
-  c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])
- );
 }
 
 function clearHistory(){
