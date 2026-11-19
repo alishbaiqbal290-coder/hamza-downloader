@@ -3,88 +3,185 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HAMZA DOWNLOADER - V2</title>
+<title>HAMZA DOWNLOADER - MY VIDEOS</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#04070a;color:#fff;font-family:Arial,sans-serif}
-header{padding:26px 10px;text-align:center;background:linear-gradient(180deg,#0a1a12,#04070a);border-bottom:1px solid #1a3d2b}
-.logo{font-size:28px;font-weight:900;color:#2dff8f;letter-spacing:1px}
+header{padding:28px 16px;text-align:center;background:linear-gradient(180deg,#0a1f16,#04070a);border-bottom:1px solid #1a3a2a}
+.logo{font-size:27px;font-weight:900;color:#2eff8f;letter-spacing:1px}
 .logo span{color:#fff}
-header p{color:#8aa89a;font-size:12px;letter-spacing:2px;margin:5px 0 0}
-.container{max-width:520px;margin:20px auto;padding:14px}
-.card{background:#0b1510;border:1px solid #1e4d33;border-radius:22px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
-h2{font-size:20px;margin:0}
-.sub{color:#82958a;font-size:13px;margin:6px 0 14px}
-.inputbox{width:100%;padding:16px;border-radius:13px;border:1px solid #286b43;background:#07100b;color:#fff;outline:none;font-size:15px}
-.inputbox:focus{border-color:#2dff8f}
-.platforms{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
-.platform{background:#101d15;border:1px solid #1e5734;padding:14px 5px;text-align:center;border-radius:13px;font-size:13px;color:#b8d8c5;cursor:pointer;font-weight:bold}
-.platform.active{border-color:#2dff8f;color:#2dff8f;background:#123324;box-shadow:0 0 12px #1a5c38}
-label{font-size:13px;color:#b8d8c5}
-select{width:100%;padding:13px;background:#07100b;color:#fff;border:1px solid #286b43;border-radius:10px;margin:8px 0 14px;outline:none}
-.btn{border:0;padding:15px;border-radius:13px;cursor:pointer;font-weight:900;width:100%;font-size:16px}
-.download{background:#2dff8f;color:#031208}
-.download:disabled{opacity:.6}
-.paste{background:#193a28;color:#51ff9c;margin-top:10px}
-#status{margin-top:14px;color:#5cff9e;font-size:13px;text-align:center;min-height:18px;line-height:1.5}
-.progress{width:100%;height:12px;background:#17251c;border-radius:20px;overflow:hidden;margin-top:14px}
-#progressBar{width:0%;height:100%;background:#2dff8f;transition:width .2s}
-#percent{text-align:center;color:#55ff9b;margin-top:8px;font-size:13px}
-.history{margin-top:20px;padding:15px;background:#0b1510;border-radius:14px;border:1px solid #1e4d33}
-.history h3{margin:0 0 10px;font-size:15px}
-.note{color:#82958a;font-size:12px;line-height:1.6;margin-top:18px;text-align:center}
-footer{text-align:center;color:#718477;font-size:11px;padding:20px}
+header p{color:#8ca99a;font-size:12px;letter-spacing:3px;margin:6px 0 0}
+.container{max-width:520px;margin:0 auto;padding:18px}
+.card{background:#0b1711;border:1px solid #1e4d33;border-radius:22px;padding:22px}
+h2{margin:0;font-size:21px}
+.sub{color:#8aa79a;font-size:13px;margin:6px 0 0;line-height:1.6}
+.upload-box{margin:16px 0;padding:25px 10px;text-align:center;border:2px dashed #2a6b45;border-radius:16px;background:#060f0a;cursor:pointer}
+.upload-box b{color:#2eff8f;font-size:16px}
+.upload-box p{color:#8aa79a;font-size:12px;margin:8px 0 0}
+input[type=file]{display:none}
+video{width:100%;border-radius:14px;background:#000;max-height:320px;display:none;margin-top:14px}
+.inputbox{width:100%;padding:15px;border-radius:12px;border:1px solid #2a6b45;background:#060f0a;color:#fff;outline:none;margin:12px 0;font-size:14px}
+label{font-size:12px;color:#8aa79a}
+select{width:100%;padding:13px;background:#060f0a;color:#fff;border:1px solid #2a6b45;border-radius:10px;margin:8px 0}
+button{border:0;padding:15px;border-radius:12px;cursor:pointer;font-weight:bold;width:100%}
+.download{background:#2eff8f;color:#02120a;font-size:16px;margin-top:12px}
+.download:disabled{opacity:.5}
+.secondary{background:#1a3527;color:#5cff9e;margin-top:10px}
+#status{margin-top:14px;color:#5cff9e;font-size:13px;text-align:center;min-height:20px}
+.progress{width:100%;height:12px;background:#16241c;border-radius:20px;overflow:hidden;margin-top:14px}
+#progressBar{width:0%;height:100%;background:#2eff8f;transition:width .2s}
+#percent{text-align:center;color:#5cff9e;margin-top:8px;font-size:13px}
+.note{color:#7d9387;font-size:12px;line-height:1.7;margin-top:18px;text-align:center}
+footer{text-align:center;color:#5d7265;font-size:11px;padding:20px}
 </style>
 </head>
 <body>
 
 <header>
- <div class="logo">◉ HAMZA <span>DOWNLOADER</span></div>
- <p>V2 • ALL-IN-ONE • GALLERY SAVE</p>
+<div class="logo">◉ HAMZA <span>DOWNLOADER</span></div>
+<p>MY OWN VIDEOS • NO WATERMARK • V3</p>
 </header>
 
 <div class="container">
 <div class="card">
-<h2>Download Your Media</h2>
-<p class="sub">Paste your video or audio link</p>
+<h2>Apni Video Download Karein</h2>
+<p class="sub">Apni video jo aapne khud banai hai, usko bina watermark ke Gallery me save karein.</p>
 
-<input id="url" class="inputbox" type="url" placeholder="Paste video link here...">
+<label for="fileInput" class="upload-box">
+<b>📁 APNI VIDEO CHUNEIN</b>
+<p>Gallery se video select karein - MP4 / MOV</p>
+</label>
+<input type="file" id="fileInput" accept="video/*" onchange="loadVideo(event)">
 
-<div class="platforms">
-<div class="platform" onclick="pick(this,'YouTube')">▶ YouTube</div>
-<div class="platform" onclick="pick(this,'Instagram')">◎ Instagram</div>
-<div class="platform" onclick="pick(this,'Facebook')">f Facebook</div>
-<div class="platform" onclick="pick(this,'TikTok')">♪ TikTok</div>
-<div class="platform" onclick="pick(this,'Audio')">♫ Audio</div>
-<div class="platform" onclick="pick(this,'Other')">▶ Other</div>
-</div>
+<video id="preview" controls playsinline></video>
 
-<label>Media Quality</label>
-<select id="quality">
-<option value="1080">1080p - Full HD</option>
-<option value="720" selected>720p - HD</option>
-<option value="480">480p</option>
-<option value="360">360p</option>
-</select>
+<p style="font-size:12px;color:#8aa79a;text-align:center;margin:14px 0 0">--- YA ---</p>
 
-<label>Download Type</label>
-<select id="format">
-<option value="video">Video Download</option>
-<option value="audio">Audio / MP3 Download</option>
-</select>
+<input id="url" class="inputbox" type="url" placeholder="Apni Direct Video Link yahan paste karein... jaise https://example.com/meri-video.mp4">
 
-<button class="btn download" id="downloadBtn" onclick="downloadMedia()">↓ DOWNLOAD NOW</button>
-<button class="btn paste" onclick="pasteLink()">📋 PASTE LINK</button>
+<label>Video Ka Naam</label>
+<input id="fileName" class="inputbox" type="text" placeholder="Meri Video" value="Meri-Video">
+
+<button class="download" id="downloadBtn" onclick="downloadMyVideo()">↓ SAVE TO GALLERY</button>
+<button class="secondary" onclick="clearAll()">🗑 Clear Karein</button>
 
 <div class="progress"><div id="progressBar"></div></div>
 <div id="percent">0%</div>
-<div id="status">Ready to download</div>
+<div id="status">Ready - Apni video chunein</div>
 </div>
 
-<div class="history">
-<h3>Download History</h3>
-<div id="history"></div>
-<button onclick="clearHistory()" style="background:#183223;color:#fff;border:0;padding:10px 14px;border-radius:9px;margin-top:10px">Clear History</button>
+<p class="note">Ye sirf aapki apni videos ke liye hai.<br>
+TikTok / YouTube / Instagram se apni video bina watermark ke lene ke liye: TikTok Studio / YouTube Studio / Instagram > Apni Reel > Download use karein, wahan se original video milti hai.</p>
 </div>
 
-<p class="note">Only download content you own or have permission to save.<br>Direct Gallery Save
+<footer>HAMZA DOWNLOADER<br>Designed by Hamza Ansari</footer>
+
+<script>
+let selectedFile = null;
+let selectedBlobUrl = null;
+const $ = id => document.getElementById(id);
+
+function setStatus(m){ $("status").innerText = m; }
+function updateProgress(v){
+  v = Math.max(0,Math.min(100,v));
+  $("progressBar").style.width = v + "%";
+  $("percent").innerText = Math.floor(v) + "%";
+}
+
+function loadVideo(event){
+  const file = event.target.files[0];
+  if(!file) return;
+  selectedFile = file;
+  if(selectedBlobUrl) URL.revokeObjectURL(selectedBlobUrl);
+  selectedBlobUrl = URL.createObjectURL(file);
+  const v = $("preview");
+  v.src = selectedBlobUrl;
+  v.style.display = "block";
+  $("fileName").value = file.name.replace(/\.[^/.]+$/,"") || "Meri-Video";
+  updateProgress(100);
+  setStatus("Video load ho gayi: " + file.name);
+}
+
+function blobToBase64(blob){
+  return new Promise((resolve,reject)=>{
+    const reader = new FileReader();
+    reader.onload = ()=> resolve(reader.result.split(",")[1]);
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+}
+
+async function saveFile(blob, filename){
+  // Android App me hai to Gallery me save hoga
+  if(window.Android && typeof window.Android.saveToGallery === "function"){
+    const base64 = await blobToBase64(blob);
+    window.Android.saveToGallery(base64, filename, blob.type || "video/mp4");
+    return true;
+  }
+  // Browser me hai to normal download hoga
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url), 60000);
+  return true;
+}
+
+async function downloadMyVideo(){
+  const nameInput = $("fileName").value.trim() || "Meri-Video";
+  const filename = nameInput + ".mp4";
+  const link = $("url").value.trim();
+
+  $("downloadBtn").disabled = true;
+  $("downloadBtn").innerText = "PLEASE WAIT...";
+  updateProgress(0);
+
+  try{
+    // 1. Agar file select ki hai to wahi save karo
+    if(selectedFile){
+      setStatus("Gallery me save ho rahi hai...");
+      updateProgress(50);
+      await saveFile(selectedFile, filename);
+      updateProgress(100);
+      setStatus("Ho gaya! Video Gallery me save ho gayi - Bina Watermark ke.");
+      return;
+    }
+
+    // 2. Agar direct link diya hai to usko download karo
+    if(link){
+      setStatus("Apke link se download ho raha hai...");
+      const res = await fetch(link);
+      if(!res.ok) throw new Error("Link se video nahi mili: " + res.status);
+      const blob = await res.blob();
+      if(!blob.size) throw new Error("Khaali file mili");
+      updateProgress(80);
+      await saveFile(blob, filename);
+      updateProgress(100);
+      setStatus("Ho gaya! Video Gallery me save ho gayi.");
+      return;
+    }
+
+    setStatus("Pehle apni video chunein ya link paste karein");
+    updateProgress(0);
+
+  }catch(e){
+    updateProgress(0);
+    setStatus("Fail ho gaya: " + e.message);
+  }finally{
+    $("downloadBtn").disabled = false;
+    $("downloadBtn").innerText = "↓ SAVE TO GALLERY";
+  }
+}
+
+function clearAll(){
+  selectedFile = null;
+  $("fileInput").value = "";
+  $("url").value = "";
+  $("preview").src = "";
+  $("preview").style.display = "none";
+  updateProgress(0);
+  setStatus("Clear ho gaya - Dobara video chunein");
+}
+</script>
+</body>
+</html>
