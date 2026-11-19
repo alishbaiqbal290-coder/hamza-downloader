@@ -1,109 +1,54 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HAMZA DOWNLOADER</title>
-
+<title>HAMZA DOWNLOADER - V2</title>
 <style>
 *{box-sizing:border-box}
-body{
- margin:0;background:#050807;color:white;
- font-family:Arial,sans-serif
-}
-header{
- padding:24px 16px;text-align:center;
- background:#08130e;border-bottom:1px solid #123d27
-}
-.logo{
- font-size:27px;font-weight:bold;
- color:#38ff91;letter-spacing:2px
-}
-header p{color:#8ca99a;font-size:12px}
-.container{max-width:500px;margin:25px auto;padding:16px}
-.card{
- background:#0b1510;border:1px solid #17472c;
- border-radius:17px;padding:20px;
- box-shadow:0 0 20px #0b2415
-}
-h2{font-size:19px}
-.inputbox{
- width:100%;padding:16px;border-radius:10px;
- border:1px solid #286b43;background:#07100b;
- color:white;outline:none;margin:12px 0;font-size:14px
-}
-button{
- border:0;padding:14px;border-radius:10px;
- cursor:pointer;font-weight:bold
-}
-.download{
- width:100%;background:#35f58a;color:#031208;
- font-size:16px
-}
+body{margin:0;background:#04070a;color:#fff;font-family:Arial,sans-serif}
+header{padding:26px 10px;text-align:center;background:linear-gradient(180deg,#0a1a12,#04070a);border-bottom:1px solid #1a3d2b}
+.logo{font-size:28px;font-weight:900;color:#2dff8f;letter-spacing:1px}
+.logo span{color:#fff}
+header p{color:#8aa89a;font-size:12px;letter-spacing:2px;margin:5px 0 0}
+.container{max-width:520px;margin:20px auto;padding:14px}
+.card{background:#0b1510;border:1px solid #1e4d33;border-radius:22px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+h2{font-size:20px;margin:0}
+.sub{color:#82958a;font-size:13px;margin:6px 0 14px}
+.inputbox{width:100%;padding:16px;border-radius:13px;border:1px solid #286b43;background:#07100b;color:#fff;outline:none;font-size:15px}
+.inputbox:focus{border-color:#2dff8f}
+.platforms{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
+.platform{background:#101d15;border:1px solid #1e5734;padding:14px 5px;text-align:center;border-radius:13px;font-size:13px;color:#b8d8c5;cursor:pointer;font-weight:bold}
+.platform.active{border-color:#2dff8f;color:#2dff8f;background:#123324;box-shadow:0 0 12px #1a5c38}
+label{font-size:13px;color:#b8d8c5}
+select{width:100%;padding:13px;background:#07100b;color:#fff;border:1px solid #286b43;border-radius:10px;margin:8px 0 14px;outline:none}
+.btn{border:0;padding:15px;border-radius:13px;cursor:pointer;font-weight:900;width:100%;font-size:16px}
+.download{background:#2dff8f;color:#031208}
 .download:disabled{opacity:.6}
-.voice{
- background:#193a28;color:#51ff9c;
- width:100%;margin-top:10px
-}
-.platforms{
- display:grid;grid-template-columns:repeat(3,1fr);
- gap:10px;margin:20px 0
-}
-.platform{
- background:#101d15;border:1px solid #1e5734;
- padding:13px 5px;text-align:center;
- border-radius:10px;font-size:12px;
- color:#b8d8c5;cursor:pointer
-}
-.platform.active{
- border-color:#35f58a;color:#35f58a;
- background:#123324
-}
-select{
- width:100%;padding:13px;background:#07100b;
- color:white;border:1px solid #286b43;
- border-radius:9px;margin:10px 0
-}
-#status{
- margin-top:15px;color:#5cff9e;
- font-size:13px;text-align:center;min-height:18px
-}
-.progress{
- width:100%;height:12px;background:#17251c;
- border-radius:20px;overflow:hidden;margin-top:15px
-}
-#progressBar{
- width:0%;height:100%;background:#35f58a;
- transition:width .2s
-}
-#percent{text-align:center;color:#55ff9b;margin-top:8px}
-.history{
- margin-top:20px;padding:15px;
- background:#0b1510;border-radius:12px
-}
-.note{color:#82958a;font-size:12px;line-height:1.6;margin-top:20px}
-footer{text-align:center;color:#718477;font-size:11px;padding:25px}
+.paste{background:#193a28;color:#51ff9c;margin-top:10px}
+#status{margin-top:14px;color:#5cff9e;font-size:13px;text-align:center;min-height:18px;line-height:1.5}
+.progress{width:100%;height:12px;background:#17251c;border-radius:20px;overflow:hidden;margin-top:14px}
+#progressBar{width:0%;height:100%;background:#2dff8f;transition:width .2s}
+#percent{text-align:center;color:#55ff9b;margin-top:8px;font-size:13px}
+.history{margin-top:20px;padding:15px;background:#0b1510;border-radius:14px;border:1px solid #1e4d33}
+.history h3{margin:0 0 10px;font-size:15px}
+.note{color:#82958a;font-size:12px;line-height:1.6;margin-top:18px;text-align:center}
+footer{text-align:center;color:#718477;font-size:11px;padding:20px}
 </style>
 </head>
-
 <body>
 
 <header>
- <div class="logo">◉ HAMZA DOWNLOADER</div>
- <p>ALL-IN-ONE MEDIA DOWNLOADER</p>
+ <div class="logo">◉ HAMZA <span>DOWNLOADER</span></div>
+ <p>V2 • ALL-IN-ONE • GALLERY SAVE</p>
 </header>
 
 <div class="container">
 <div class="card">
-
 <h2>Download Your Media</h2>
-<p style="color:#82958a;font-size:13px">
-Paste your video or audio link
-</p>
+<p class="sub">Paste your video or audio link</p>
 
-<input id="url" class="inputbox" type="url"
-placeholder="Paste video link here...">
+<input id="url" class="inputbox" type="url" placeholder="Paste video link here...">
 
 <div class="platforms">
 <div class="platform" onclick="pick(this,'YouTube')">▶ YouTube</div>
@@ -116,9 +61,8 @@ placeholder="Paste video link here...">
 
 <label>Media Quality</label>
 <select id="quality">
-<option value="source">Original Quality</option>
-<option value="1080">1080p</option>
-<option value="720">720p</option>
+<option value="1080">1080p - Full HD</option>
+<option value="720" selected>720p - HD</option>
 <option value="480">480p</option>
 <option value="360">360p</option>
 </select>
@@ -129,266 +73,18 @@ placeholder="Paste video link here...">
 <option value="audio">Audio / MP3 Download</option>
 </select>
 
-<button class="download" id="downloadBtn"
-onclick="downloadMedia()">↓ DOWNLOAD NOW</button>
+<button class="btn download" id="downloadBtn" onclick="downloadMedia()">↓ DOWNLOAD NOW</button>
+<button class="btn paste" onclick="pasteLink()">📋 PASTE LINK</button>
 
-<button class="voice" onclick="pasteLink()">📋 PASTE LINK</button>
-
-<div class="progress">
-<div id="progressBar"></div>
-</div>
-
+<div class="progress"><div id="progressBar"></div></div>
 <div id="percent">0%</div>
 <div id="status">Ready to download</div>
-
 </div>
 
 <div class="history">
 <h3>Download History</h3>
 <div id="history"></div>
-<button onclick="clearHistory()"
-style="background:#183223;color:white">
-Clear History
-</button>
+<button onclick="clearHistory()" style="background:#183223;color:#fff;border:0;padding:10px 14px;border-radius:9px;margin-top:10px">Clear History</button>
 </div>
 
-<p class="note">
-Use direct media links or an authorized download API.
-Platform downloads require a connected backend.
-Only download content you own or have permission to save.
-</p>
-
-</div>
-
-<footer>
-HAMZA DOWNLOADER<br>
-Designed by Hamza Ansari
-</footer>
-
-<script>
-
-// IMPORTANT:
-// Add your authorized backend API URL here.
-const API_ENDPOINT = "";
-
-const $ = id => document.getElementById(id);
-let busy = false;
-let selectedPlatform = "";
-
-function pick(el,name){
- document.querySelectorAll('.platform')
- .forEach(p=>p.classList.remove('active'));
-
- el.classList.add('active');
- selectedPlatform = name;
- setStatus(name+" selected");
-}
-
-function setStatus(message){
- $("status").innerText = message;
-}
-
-function updateProgress(value){
- value = Math.max(0,Math.min(100,value));
- $("progressBar").style.width=value+"%";
- $("percent").innerText=Math.floor(value)+"%";
-}
-
-async function pasteLink(){
- try{
-  const text=await navigator.clipboard.readText();
-  if(text){
-   $("url").value=text.trim();
-   setStatus("Link pasted successfully");
-  }else{
-   setStatus("Clipboard is empty");
-  }
- }catch(e){
-  setStatus("Long press and paste your link");
- }
-}
-
-function saveHistory(url,filename){
- try{
-  let items=JSON.parse(
-   localStorage.getItem("hamza_history")||"[]"
-  );
-  items.unshift({url,filename});
-  localStorage.setItem(
-   "hamza_history",JSON.stringify(items.slice(0,10))
-  );
-  showHistory();
- }catch(e){}
-}
-
-function showHistory(){
- try{
-  const items=JSON.parse(
-   localStorage.getItem("hamza_history")||"[]"
-  );
-  $("history").replaceChildren();
-
-  items.forEach(item=>{
-   const p=document.createElement("p");
-   p.style.cssText=
-    "font-size:12px;color:#51ff9c;overflow-wrap:anywhere";
-   p.textContent=item.filename+" - "+item.url;
-   $("history").appendChild(p);
-  });
- }catch(e){}
-}
-
-function clearHistory(){
- localStorage.removeItem("hamza_history");
- showHistory();
-}
-
-function getFilename(response,format){
- const disposition=response.headers.get("Content-Disposition")||"";
- const match=disposition.match(/filename="?([^";]+)"?/i);
-
- if(match) return match[1];
-
- return "Hamza-Download-"+Date.now()+
- (format==="audio"?".mp3":".mp4");
-}
-
-async function saveFile(blob,filename){
-
- if(window.Android &&
- typeof window.Android.saveToGallery==="function"){
-
-  const base64=await blobToBase64(blob);
-  window.Android.saveToGallery(
-   base64,filename,blob.type||"application/octet-stream"
-  );
-  return;
- }
-
- const objectURL=URL.createObjectURL(blob);
- const a=document.createElement("a");
-
- a.href=objectURL;
- a.download=filename;
- document.body.appendChild(a);
- a.click();
- a.remove();
-
- setTimeout(()=>URL.revokeObjectURL(objectURL),60000);
-}
-
-function blobToBase64(blob){
- return new Promise((resolve,reject)=>{
-  const reader=new FileReader();
-  reader.onload=()=>resolve(reader.result.split(",")[1]);
-  reader.onerror=reject;
-  reader.readAsDataURL(blob);
- });
-}
-
-async function downloadMedia(){
-
- if(busy)return;
-
- const url=$("url").value.trim();
- const quality=$("quality").value;
- const format=$("format").value;
-
- if(!url){
-  setStatus("Please paste a link first");
-  return;
- }
-
- let parsed;
-
- try{
-  parsed=new URL(url);
- }catch(e){
-  setStatus("Invalid link");
-  return;
- }
-
- if(!["https:","http:"].includes(parsed.protocol)){
-  setStatus("Only HTTP and HTTPS links supported");
-  return;
- }
-
- busy=true;
- $("downloadBtn").disabled=true;
- $("downloadBtn").innerText="PLEASE WAIT...";
- updateProgress(0);
-
- try{
-
-  const isDirect=/\.(mp4|webm|mov|mp3|m4a|ogg|wav|aac)$/i
-   .test(parsed.pathname);
-
-  let response;
-
-  if(isDirect){
-
-   setStatus("Connecting to media...");
-   response=await fetch(url);
-
-  }else{
-
-   if(!API_ENDPOINT){
-    throw new Error(
-     "Backend API is not connected. Platform download needs an authorized server."
-    );
-   }
-
-   setStatus("Connecting to download server...");
-
-   response=await fetch(API_ENDPOINT,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({
-     url:url,
-     quality:quality,
-     format:format,
-     platform:selectedPlatform
-    })
-   });
-  }
-
-  if(!response.ok){
-   throw new Error("Server error: "+response.status);
-  }
-
-  const blob=await response.blob();
-
-  if(!blob.size){
-   throw new Error("Empty file received");
-  }
-
-  updateProgress(80);
-  setStatus("Preparing your file...");
-
-  const filename=getFilename(response,format);
-
-  await saveFile(blob,filename);
-
-  updateProgress(100);
-  saveHistory(url,filename);
-
-  setStatus("Download complete! Check Downloads folder.");
-
- }catch(error){
-
-  updateProgress(0);
-  setStatus("Download failed: "+error.message);
-
- }finally{
-
-  busy=false;
-  $("downloadBtn").disabled=false;
-  $("downloadBtn").innerText="↓ DOWNLOAD NOW";
- }
-}
-
-showHistory();
-
-</script>
-</body>
-</html>
+<p class="note">Only download content you own or have permission to save.<br>Direct Gallery Save
